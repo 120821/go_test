@@ -22,17 +22,13 @@ type Apple struct {
 }
 
 func main() {
-  // db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
-  // 使用sql
   dsn := "host=localhost user=admin password=88888888 dbname=blogs port=5432 sslmode=disable TimeZone=Asia/Shanghai"
   db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-  // 使用postgres
   if err != nil {
     panic("failed to connect database")
   }
 
   // Migrate the schema
-  db.Migrator().CreateTable(&Apple{})
   db.AutoMigrate(&Product{})
 
   // Create
