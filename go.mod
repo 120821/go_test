@@ -10,6 +10,7 @@ require (
 	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15 // indirect
 	github.com/jessevdk/go-assets-builder v0.0.0-20130903091706-b8483521738f // indirect
 	github.com/jessevdk/go-flags v1.5.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
@@ -17,4 +18,6 @@ require (
 	golang.org/x/net v0.0.0-20221004154528-8021a29435af // indirect
 	golang.org/x/sys v0.0.0-20221006211917-84dc82d7e875 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
+	gorm.io/driver/postgres v1.4.5 // indirect
+	gorm.io/driver/sqlite v1.4.3 // indirect
 )
