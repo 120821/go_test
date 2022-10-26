@@ -23,6 +23,7 @@ func deleteHandler(c *fiber.Ctx) error {
   return c.SendString("Hello")
 }
 
+// TODO
 func main() {
   dsn := "host=localhost user=admin password=88888888 dbname=blogs port=5432 sslmode=disable TimeZone=Asia/Shanghai"
   db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
