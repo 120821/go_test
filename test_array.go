@@ -1,4 +1,3 @@
-
 package main
 
 import "fmt"
@@ -17,5 +16,6 @@ func main() {
   familyName("Jenny", 14, 5)
   familyName("A", 30, 8)
   familyName("B", 3, 8)
+  familyName("a", 5, 2)
 }
 
