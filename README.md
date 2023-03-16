@@ -21,6 +21,38 @@ hello-world    hello-world.go
 $ ./hello-world
 hello world
 
+命名的返回值
+
+Go 的返回值可能会被命名。 如果是这样，它们将被视为在函数顶部定义的变量。
+
+这些名称应用于记录返回值的含义。
+
+A return不带参数的语句返回指定的返回值。 这被称为“裸”返回。
+
+裸返回语句应该只用在短函数中，就像这里显示的例子一样。
+vim named_results.go
+
+```
+package main
+
+import "fmt"
+
+func split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
+}
+
+func main() {
+	fmt.Println(split(17))
+}
+
+```
+$ go run named_results.go
+```
+7 10
+```
+
 vim test_odd.go
 ```
 package main
