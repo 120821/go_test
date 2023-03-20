@@ -22,5 +22,6 @@ func main() {
 
 	fmt.Printf("The element %d was deleted.\n", elem)
 	fmt.Println("Slice after deleting elements:", numbers)
+  fmt.Println(len(numbers))
 }
 
