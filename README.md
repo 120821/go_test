@@ -341,3 +341,49 @@ $ go run make_with_map.go
 map[be:Belgium lu:Luxembourgh nl:Netherlands]
 map["be":"Belgium" "lu":"Luxembourgh" "nl":"Netherlands"]
 ```
+vim make_with_channel.go
+```
+package main
+
+import (
+  "fmt"
+)
+
+func fib(n int, c chan int) {
+
+  x, y := 0, 1
+
+  for i := 0; i < n; i++ {
+    c <- x
+    x, y = y, x+y
+  }
+  close(c)
+}
+
+func main() {
+
+  c := make(chan int, 10)
+
+  go fib(cap(c), c)
+
+  for i := range c {
+    fmt.Println(i)
+  }
+}
+```
+
+$ go run make_with_channel.go
+
+```
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+```
+more go tests: https://zetcode.com/all/#go
