@@ -122,9 +122,12 @@ func main() {
   familyName("A", 30, 8)
   familyName("B", 3, 8)
 }
+
 ```
+
 $ go run test_array.go
 return:
+
 ```
 LiamLiamLiam
 LiamLiamLiam
@@ -152,4 +155,93 @@ BBB
 BBB
 BBB
 
+```
+
+vim slice.go
+
+```
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+
+  vals := make([]int, 5)
+  fmt.Println(vals)
+
+  vals[0] = 12
+  vals[1] = 18
+  vals[2] = 13
+  vals[3] = 19
+  vals[4] = 38
+
+  fmt.Println(vals)
+
+  vals2 := []int{12, 18, 13, 19, 38}
+  fmt.Println(vals2)
+
+  vals3 := []int{}
+  fmt.Println(vals3)
+
+  // vals3[0] = 12
+  // vals3[1] = 18
+
+  vals3 = append(vals3, 1)
+  vals3 = append(vals3, 2)
+  vals3 = append(vals3, 5)
+  vals3 = append(vals3, 6)
+
+  fmt.Println(vals3)
+}
+```
+
+$ go run slice.go
+get result:
+
+```
+[0 0 0 0 0]
+[12 18 13 19 38]
+[12 18 13 19 38]
+[]
+[1 2 5 6]
+```
+vim test_array_slice.go
+
+```
+test_array_slice.go
+package main
+import "fmt"
+func main() {
+  var a [5]int
+  b := a
+  b[3] = 7
+  b[0] = 873
+  b[2] = 12
+  b[1] = 39
+  length := len(a)
+  fmt.Println(a, b) // [0 0 0 0 0] [0 0 0 7 0]
+  var i int
+  for i = 0; i < length;i++ {
+    fmt.Println("before", b[i], "b is", b) //
+    b[i] = b[i] + 2
+    fmt.Println("after", b[i], "b is", b) //
+  }
+}
+```
+$ go run test_array_slice.go
+
+```
+[0 0 0 0 0] [873 39 12 7 0]
+before 873 b is [873 39 12 7 0]
+after 875 b is [875 39 12 7 0]
+before 39 b is [875 39 12 7 0]
+after 41 b is [875 41 12 7 0]
+before 12 b is [875 41 12 7 0]
+after 14 b is [875 41 14 7 0]
+before 7 b is [875 41 14 7 0]
+after 9 b is [875 41 14 9 0]
+before 0 b is [875 41 14 9 0]
+after 2 b is [875 41 14 9 2]
 ```
