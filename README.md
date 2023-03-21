@@ -315,3 +315,29 @@ get the result:
 [[war water wrath wrong] [car cup cloud] [boy brown]]
 
 ```
+
+vim make_with_map.go
+```
+package main
+
+import "fmt"
+
+func main() {
+
+  benelux := make(map[string]string)
+
+  benelux["be"] = "Belgium"
+  benelux["nl"] = "Netherlands"
+  benelux["lu"] = "Luxembourgh"
+
+  fmt.Println(benelux)
+  fmt.Printf("%q\n", benelux)
+}
+
+```
+
+$ go run make_with_map.go
+```
+map[be:Belgium lu:Luxembourgh nl:Netherlands]
+map["be":"Belgium" "lu":"Luxembourgh" "nl":"Netherlands"]
+```
