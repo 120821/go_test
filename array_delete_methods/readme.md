@@ -86,9 +86,9 @@ func main() {
 after remove int slice: [1 2 5 4]
 after remove str slice: [go linux golang]
 ```
-https://www.golinuxcloud.com/golang-remove-from-slice/
+refer: https://www.golinuxcloud.com/golang-remove-from-slice/
 
-vim delete-element-slice-changes-order.go
+### delete-element-slice-changes-order.go
 ```
 package main
 
@@ -115,7 +115,7 @@ output:
 [A B E D]
 ```
 
-vim delete-element-slice-maintains-order.go
+### delete-element-slice-maintains-order.go
 ```
 a := []string{"A", "B", "C", "D", "E"}
 i := 2
@@ -131,3 +131,30 @@ $ go run delete-element-slice-maintains-order.go
 ```
 [A B D E]
 ```
+refer: https://yourbasic.org/golang/delete-element-slice/
+
+### delete-element-slice-using-append.go
+```
+package main
+import (
+  "fmt"
+)
+//function used to delete the element
+func remove(s []string, i int) []string {
+  return append(s[:i], s[i+1:]...)
+}
+func main() {
+  s := []string{"a", "b", "c"}
+  fmt.Println(s)
+  s = remove(s, 1)
+  fmt.Println(s)
+}
+
+```
+$ go run delete-element-slice-using-append.go
+output:
+```
+[a b c]
+[a c]
+```
+refer: https://www.zentao.pm/agile-knowledge-share/golang-slice-delete-element-append-178.html
