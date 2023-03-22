@@ -87,3 +87,47 @@ after remove int slice: [1 2 5 4]
 after remove str slice: [go linux golang]
 ```
 https://www.golinuxcloud.com/golang-remove-from-slice/
+
+vim delete-element-slice-changes-order.go
+```
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  a := []string{"A", "B", "C", "D", "E"}
+  i := 2
+  // Remove the element at index i from a.
+  a[i] = a[len(a)-1] // Copy last element to index i.
+  a[len(a)-1] = ""   // Erase last element (write zero value).
+  a = a[:len(a)-1]   // Truncate slice.
+
+  fmt.Println(a) // [A B E D]
+}
+
+```
+$ go run delete-element-slice-changes-order.go
+output:
+
+```
+[A B E D]
+```
+
+vim delete-element-slice-maintains-order.go
+```
+a := []string{"A", "B", "C", "D", "E"}
+i := 2
+
+// Remove the element at index i from a.
+copy(a[i:], a[i+1:]) // Shift a[i+1:] left one index.
+a[len(a)-1] = ""     // Erase last element (write zero value).
+a = a[:len(a)-1]     // Truncate slice.
+
+fmt.Println(a) // [A B D E]
+```
+$ go run delete-element-slice-maintains-order.go
+```
+[A B D E]
+```
