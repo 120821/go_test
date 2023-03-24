@@ -462,3 +462,64 @@ output:
 ```
 [[Google Runoob] [Taobao Weibo]]
 ```
+### go test
+1.创建dir
+```
+$ mkdir math
+```
+2.进入dir math
+```
+$ cd math
+```
+创建math.go
+$ vim math.go
+```
+package math
+
+// Add is our function that sums two integers
+func Add(x, y int) (res int) {
+	return x + y
+}
+
+// Subtract subtracts two integers
+func Subtract(x, y int) (res int) {
+	return x - y
+}
+```
+
+创建测试math_test.go
+```
+package math
+
+import "testing"
+
+func TestAdd(t *testing.T){
+
+got := Add(4, 6)
+       want := 10
+
+       if got != want {
+         t.Errorf("got %q, wanted %q", got, want)
+       }
+}
+```
+
+测试
+```
+go test
+```
+output:
+```
+/workspace/go/go_test_2023/math$ go test
+PASS
+ok  	gins.go/math	0.001s
+```
+我们的 go 测试对于我们的小程序来说可能已经足够了，但有时您会希望查看正在运行的测试以及每个测试需要多长时间。  添加 -v 标志会增加冗长程度。  使用新标志重新运行测试：
+```
+/workspace/go/go_test_2023/math$ go test -v
+=== RUN   TestAdd
+--- PASS: TestAdd (0.00s)
+PASS
+ok  	gins.go/math	0.001s
+
+```
