@@ -524,3 +524,43 @@ ok  	gins.go/math	0.001s
 
 ```
 refer: https://www.digitalocean.com/community/tutorials/how-to-write-unit-tests-in-go-using-go-test-and-the-testing-package
+
+### slice3.go
+```
+package main
+
+import (
+  "fmt"
+)
+
+func a() {
+  x := []int{}
+  x = append(x, 0)
+  x = append(x, 1)  // commonTags := labelsToTags(app.Labels)
+  y := append(x, 2) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+  z := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+  fmt.Println(y, z)
+}
+
+func b() {
+  x := []int{}
+  x = append(x, 0)
+  x = append(x, 1)
+  x = append(x, 2)  // commonTags := labelsToTags(app.Labels)
+  y := append(x, 3) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+  z := append(x, 4) // Tags: append(commonTags, labelsToTags(d.Labels)...)
+  fmt.Println(y, z)
+}
+
+func main() {
+  a()
+  b()
+}
+
+```
+go run slices3.go
+```
+[0 1 2] [0 1 3]
+[0 1 2 4] [0 1 2 4]
+```
+refer: https://blog.allegro.tech/2017/07/golang-slices-gotcha.html
