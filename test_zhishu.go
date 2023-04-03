@@ -31,11 +31,11 @@ func sum(array []int) int{
     fmt.Println("========== i 是", i, "array", array)
     fmt.Println("========== i%2 是", i%2)
     if i%2 == 0 {
-      fmt.Println("=== 减之前，sum", sum)
+      fmt.Println("=== 减之前，sum", sum, "在数组的第偶数位元素的符号为负", -array[i-1])
       sum = sum - array[i-1]
       fmt.Println("=== 减之后，sum", sum)
     }else{
-      fmt.Println("=== 加之前, sum", sum)
+      fmt.Println("=== 加之前, sum", sum, "在数组的第奇数位元素的符号为正", array[i-1])
       sum = sum + array[i-1]
       fmt.Println("=== 加之后, sum", sum)
     }
